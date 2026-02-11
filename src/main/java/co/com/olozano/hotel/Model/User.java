@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -35,6 +36,10 @@ public class User {
 
     @Column(name = "usr_email")
     private String email;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "usr_country_id")
+    private Country country;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

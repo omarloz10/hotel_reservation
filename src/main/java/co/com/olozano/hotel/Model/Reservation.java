@@ -28,6 +28,14 @@ public class Reservation {
     @Column(name = "reserv_ended_date")
     private LocalDate endedDate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reserv_room_id")
+    private Room room;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reserv_user_id")
+    private User user;
+
     @Column(name = "reserv_check_in")
     private LocalDateTime checkIn;
 
@@ -35,7 +43,7 @@ public class Reservation {
     private LocalDateTime checkOut;
 
     @Column(name = "reserv_status")
-    private LocalDateTime status;
+    private String status;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

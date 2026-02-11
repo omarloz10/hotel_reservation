@@ -22,6 +22,14 @@ public class Credential {
     @Column(name = "credent_id")
     private UUID id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "credent_user_id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "credent_role_id")
+    private Role role;
+
     @Column(name = "credent_password")
     private String password;
 

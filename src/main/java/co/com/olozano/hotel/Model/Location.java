@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -27,6 +28,10 @@ public class Location {
 
     @Column(name = "lc_address")
     private String address;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lc_city_id")
+    private City city;
 
     @Column(name = "lc_phone_number")
     private String phoneNumber;

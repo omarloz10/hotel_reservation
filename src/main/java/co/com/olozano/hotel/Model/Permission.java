@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -22,4 +23,7 @@ public class Permission {
 
     @Column(name = "perm_description")
     private String description;
+
+    @ManyToMany(mappedBy = "permissions")
+    private List<Role> roles;
 }
