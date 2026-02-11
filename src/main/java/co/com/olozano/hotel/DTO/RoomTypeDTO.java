@@ -1,4 +1,12 @@
 package co.com.olozano.hotel.DTO;
 
-public record RoomTypeDTO() {
+import lombok.Builder;
+
+import java.util.UUID;
+
+@Builder(toBuilder = true)
+public record RoomTypeDTO(
+        UUID id,
+        String type
+) {
 }
